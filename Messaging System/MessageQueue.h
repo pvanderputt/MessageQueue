@@ -32,5 +32,8 @@ public:
 
 	//returns the size of the queue
 	unsigned int GetSize();
+
+	//returns true if queue is empty
+	bool IsEmpty();
 };
 

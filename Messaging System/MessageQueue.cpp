@@ -14,19 +14,16 @@ void MessageQueue::AddMessage(Message* m){
 }
 
 Message* MessageQueue::GetFront(){
-	if(q.size() == 0)
-		return;
-
-	return q.top();
+	if(!q.empty())
+		return q.top();
 }
 
 Message* MessageQueue::TakeFront(){
-	if(q.size() == 0)
-		return;
-
-	Message* temp = q.top();
-	q.pop();
-	return temp;
+	if(!q.empty){
+		Message* temp = q.top();
+		q.pop();
+		return temp;
+	}
 }
 
 void MessageQueue::RemoveFront(){
@@ -39,7 +36,15 @@ void MessageQueue::RemoveFront(){
 }
 
 void MessageQueue::ClearQueue(){
-	while(q.size != 0){
+	while(q.size() != 0){
 		RemoveFront();
 	}
+}
+
+unsigned int MessageQueue::GetSize(){
+	return q.size();
+}
+
+bool MessageQueue::IsEmpty(){
+	return q.empty();
 }
