@@ -19,7 +19,7 @@ Message* MessageQueue::GetFront(){
 }
 
 Message* MessageQueue::TakeFront(){
-	if(!q.empty){
+	if(!q.empty()){
 		Message* temp = q.top();
 		q.pop();
 		return temp;
@@ -27,7 +27,7 @@ Message* MessageQueue::TakeFront(){
 }
 
 void MessageQueue::RemoveFront(){
-	if(q.size() == 0)
+	if(q.empty())
 		return;
 
 	Message* temp = q.top();
@@ -36,7 +36,7 @@ void MessageQueue::RemoveFront(){
 }
 
 void MessageQueue::ClearQueue(){
-	while(q.size() != 0){
+	while(!q.empty()){
 		RemoveFront();
 	}
 }
