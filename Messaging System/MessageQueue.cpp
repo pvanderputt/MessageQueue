@@ -2,10 +2,10 @@
 
 
 
-MessageQueue::MessageQueue(void){
+MessageQueue::MessageQueue(){
 }
 
-MessageQueue::~MessageQueue(void){
+MessageQueue::~MessageQueue(){
 	ClearQueue();
 }
 
@@ -14,16 +14,13 @@ void MessageQueue::AddMessage(Message* m){
 }
 
 Message* MessageQueue::GetFront(){
-	if(!q.empty())
-		return q.top();
+	return q.top();
 }
 
 Message* MessageQueue::TakeFront(){
-	if(!q.empty()){
-		Message* temp = q.top();
-		q.pop();
-		return temp;
-	}
+	Message* temp = q.top();
+	q.pop();
+	return temp;
 }
 
 void MessageQueue::RemoveFront(){

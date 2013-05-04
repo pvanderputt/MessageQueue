@@ -12,8 +12,8 @@ private:
 	std::priority_queue<Message*, std::vector<Message*>, MessageComparison> q;
 
 public:
-	MessageQueue(void);
-	~MessageQueue(void);
+	MessageQueue();
+	~MessageQueue();
 
 	//adds a message to the queue
 	void AddMessage(Message* m);

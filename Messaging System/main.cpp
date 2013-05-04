@@ -9,47 +9,48 @@ using namespace std;
 
 void main(){
 	std::priority_queue<Message*, vector<Message*>, MessageComparison> testQ;
+	MessageQueue testQ2;
 
 	Message* m = new Message();
-	m->timeToDelivery = 100;
+	m->timeToDelivery = 50;
 
 	Message* n = new Message();
-	n->timeToDelivery = 10;
+	n->timeToDelivery = 25;
 
 	Message* o = new Message();
-	o->timeToDelivery = 20;
+	o->timeToDelivery = 10;
 
 	Message* p = new Message();
-	p->timeToDelivery = 50;
+	p->timeToDelivery = 100;
 
-	testQ.push(p);
+	testQ2.AddMessage(p);
 
-	cout << "top of testQ is: " << testQ.top()->timeToDelivery << endl;
+	cout << "top of testQ is: " << testQ2.GetFront()->timeToDelivery << endl;
 
-	testQ.push(m);
+	testQ2.AddMessage(m);
 
-	cout << "top of testQ is: " << testQ.top()->timeToDelivery << endl;
+	cout << "top of testQ is: " << testQ2.GetFront()->timeToDelivery << endl;
 
-	testQ.push(n);
+	testQ2.AddMessage(n);
 
-	cout << "top of testQ is: " << testQ.top()->timeToDelivery << endl;
+	cout << "top of testQ is: " << testQ2.GetFront()->timeToDelivery << endl;
 
-	testQ.push(o);
+	testQ2.AddMessage(o);
 
-	cout << "top of testQ is: " << testQ.top()->timeToDelivery << endl;
+	cout << "top of testQ is: " << testQ2.GetFront()->timeToDelivery << endl;
 
 	cout << "--------now to pop----------" << endl;
-	testQ.pop();
+	testQ2.RemoveFront();
 
-	cout << "top of testQ is: " << testQ.top()->timeToDelivery << endl;
+	cout << "top of testQ is: " << testQ2.GetFront()->timeToDelivery << endl;
 
-	testQ.pop();
+	testQ2.RemoveFront();
 
-	cout << "top of testQ is: " << testQ.top()->timeToDelivery << endl;
+	cout << "top of testQ is: " << testQ2.GetFront()->timeToDelivery << endl;
 
-	testQ.pop();
+	testQ2.RemoveFront();
 
-	cout << "top of testQ is: " << testQ.top()->timeToDelivery << endl;
+	cout << "top of testQ is: " << testQ2.GetFront()->timeToDelivery << endl;
 
 	system("pause");
 
