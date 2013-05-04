@@ -2,7 +2,7 @@
 
 
 
-Message::Message(void){
+Message::Message(){
 	fromID = -1;
 	toID = -1;
 	timeToDelivery = -1;
@@ -18,5 +18,5 @@ Message::Message(int from, int to, float timeUntilDelivery, int mess){
 	p = 0;
 }
 
-Message::~Message(void){
+Message::~Message(){
 }
