@@ -19,5 +19,8 @@ public:
 
 	//sends all messages out that are needed to be sent
 	void SendMail();
+
+	//delivers a message to it's recipient
+	void DeliverMessage(Message* m);
 };
 

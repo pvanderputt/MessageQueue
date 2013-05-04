@@ -10,8 +10,8 @@ MessageQueue::~MessageQueue(){
 }
 
 void MessageQueue::AddMessage(Message* m){
-	//q.push(m);
-	//
+	//start before the first element
+	//if the next message's time is greater than the offending message's time, then insert before the next message
 	auto it = q.before_begin();
 	for(auto x : q){
 		if(x->timeToDelivery > m->timeToDelivery)
@@ -38,9 +38,9 @@ void MessageQueue::RemoveFront(){
 		return;
 
 	--qSize;
-	//Message* temp = q.top();
-	//q.pop();
-	//delete temp;
+	Message* temp = q.front();
+	q.pop_front();
+	delete temp;
 }
 
 void MessageQueue::ClearQueue(){
@@ -50,9 +50,9 @@ void MessageQueue::ClearQueue(){
 }
 
 void MessageQueue::UpdateMessageTime(float dt){
-	//for(auto &m : q.c){
-	//	m->timeToDelivery -= dt;
-	//}
+	for(auto &m : q){
+		m->timeToDelivery -= dt;
+	}
 }
 
 int MessageQueue::GetSize(){
