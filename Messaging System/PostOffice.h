@@ -21,6 +21,7 @@ public:
 	void SendMail();
 
 	//delivers a message to it's recipient
+	//This function will depend on which system is using the PostOffice
 	void DeliverMessage(Message* m);
 };
 

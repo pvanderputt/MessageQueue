@@ -29,11 +29,15 @@ void PostOffice::SendMail(){
 }
 
 void PostOffice::DeliverMessage(Message* m){
-	//find the entity 
+	//==========================================
+	//WMI finds the entity 
+	//Actor* a = WMI->GetActor(m->toID); ?
 
 	//send the entity  m->message or the message
+	//a->fsm->ReceiveMessage(m); ?
 
 	//if sending the m->message, delete entity
 
 	//otherwise let the entity take care of deletion
+	//==========================================
 }
