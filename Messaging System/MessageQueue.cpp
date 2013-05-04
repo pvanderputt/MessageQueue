@@ -38,6 +38,12 @@ void MessageQueue::ClearQueue(){
 	}
 }
 
+void MessageQueue::SubtractTime(float dt){
+	for(auto &m : q.c){
+		m->timeToDelivery -= dt;
+	}
+}
+
 unsigned int MessageQueue::GetSize(){
 	return q.size();
 }

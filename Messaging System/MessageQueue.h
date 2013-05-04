@@ -8,6 +8,8 @@
 //the MessageQueue class acts as a wrapper for the priority queue
 
 class MessageQueue{
+	friend class priority_queue;
+
 private:
 	std::priority_queue<Message*, std::vector<Message*>, MessageComparison> q;
 
@@ -29,6 +31,9 @@ public:
 
 	//deletes all messages in the queue
 	void ClearQueue();
+
+	//
+	void SubtractTime(float dt);
 
 	//returns the size of the queue
 	unsigned int GetSize();
