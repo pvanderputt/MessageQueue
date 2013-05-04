@@ -10,16 +10,26 @@ MessageQueue::~MessageQueue(){
 }
 
 void MessageQueue::AddMessage(Message* m){
-	q.push(m);
+	//q.push(m);
+	//
+	auto it = q.before_begin();
+	for(auto x : q){
+		if(x->timeToDelivery > m->timeToDelivery)
+			break;
+		++it;
+	}
+	q.insert_after(it, m);
+	++qSize;
 }
 
 Message* MessageQueue::GetFront(){
-	return q.top();
+	return q.front();
 }
 
 Message* MessageQueue::TakeFront(){
-	Message* temp = q.top();
-	q.pop();
+	--qSize;
+	Message* temp = q.front();
+	q.pop_front();
 	return temp;
 }
 
@@ -27,9 +37,10 @@ void MessageQueue::RemoveFront(){
 	if(q.empty())
 		return;
 
-	Message* temp = q.top();
-	q.pop();
-	delete temp;
+	--qSize;
+	//Message* temp = q.top();
+	//q.pop();
+	//delete temp;
 }
 
 void MessageQueue::ClearQueue(){
@@ -38,14 +49,14 @@ void MessageQueue::ClearQueue(){
 	}
 }
 
-void MessageQueue::SubtractTime(float dt){
-	for(auto &m : q.c){
-		m->timeToDelivery -= dt;
-	}
+void MessageQueue::UpdateMessageTime(float dt){
+	//for(auto &m : q.c){
+	//	m->timeToDelivery -= dt;
+	//}
 }
 
-unsigned int MessageQueue::GetSize(){
-	return q.size();
+int MessageQueue::GetSize(){
+	return qSize;
 }
 
 bool MessageQueue::IsEmpty(){

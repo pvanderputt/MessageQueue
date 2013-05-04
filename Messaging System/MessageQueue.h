@@ -1,17 +1,18 @@
 #pragma once
 
 #include "Message.h"
-#include <queue>
-
+//#include <queue>
+#include <list>
+#include <forward_list>
 
 
 //the MessageQueue class acts as a wrapper for the priority queue
 
 class MessageQueue{
-	friend class priority_queue;
-
 private:
-	std::priority_queue<Message*, std::vector<Message*>, MessageComparison> q;
+	//std::priority_queue<Message*, std::vector<Message*>, MessageComparison> q;
+	std::forward_list<Message*> q;
+	int qSize;
 
 public:
 	MessageQueue();
@@ -33,10 +34,10 @@ public:
 	void ClearQueue();
 
 	//
-	void SubtractTime(float dt);
+	void UpdateMessageTime(float dt);
 
 	//returns the size of the queue
-	unsigned int GetSize();
+	int GetSize();
 
 	//returns true if queue is empty
 	bool IsEmpty();
