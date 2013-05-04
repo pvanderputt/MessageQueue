@@ -64,11 +64,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="CDispatcher.h" />
-    <ClInclude Include="CMessage.h" />
     <ClInclude Include="Message.h" />
     <ClInclude Include="MessageQueue.h" />
-    <ClInclude Include="MQueue.h" />
     <ClInclude Include="PostOffice.h" />
   </ItemGroup>
   <ItemGroup>
